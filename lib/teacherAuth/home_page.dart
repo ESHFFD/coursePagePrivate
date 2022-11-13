@@ -43,6 +43,7 @@ class _TeacherHomePageState extends State<TeacherHomePage> {
   //             )));
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         title: const Text('teacher auth'),
@@ -54,8 +55,8 @@ class _TeacherHomePageState extends State<TeacherHomePage> {
             const Text('Information'),
             Form(
                 child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 15.0, vertical: 20),
+              padding: EdgeInsets.symmetric(
+                  horizontal: size.height * 0.02, vertical: size.height * 0.02),
               child: Column(
                 children: [
                   TextFormField(
@@ -309,6 +310,3 @@ class _TeacherHomePageState extends State<TeacherHomePage> {
 //                               ],
 //                             );
 //                           })
-Widget fileChoosen(PlatformFile file) {
-  return Text(file.name);
-}
