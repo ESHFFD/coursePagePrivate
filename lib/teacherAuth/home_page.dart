@@ -76,15 +76,16 @@ class _TeacherHomePageState extends State<TeacherHomePage> {
                           setState(() {
                             _isSelected = true;
                           });
-                          final result = await FilePicker.platform
-                              .pickFiles(allowMultiple: true);
+                          final result = await FilePicker.platform.pickFiles(
+                            allowMultiple: true,
+                          );
                           if (result == null) return;
 
                           final file = result.files.first;
                           setState(() {
                             fileName = file.name;
                           });
-                          final newFile = await saveFile(file);
+                          // final newFile = await saveFile(file);
                           // openFile(result.files);
                         },
                         style: TextButton.styleFrom(
@@ -193,7 +194,24 @@ class _TeacherHomePageState extends State<TeacherHomePage> {
                                       borderRadius: BorderRadius.circular(15),
                                       side: const BorderSide(
                                           width: 2, color: Color(0xffD9D9D9)))),
-                              onPressed: () {},
+                              onPressed: () async {
+                                setState(() {
+                                  _isSelected = true;
+                                });
+                                final result =
+                                    await FilePicker.platform.pickFiles(
+                                  allowMultiple: true,
+                                  type: FileType.video,
+                                );
+                                if (result == null) return;
+
+                                final file = result.files.first;
+                                setState(() {
+                                  fileName = file.name;
+                                });
+                                // final newFile = await saveFile(file);
+                                // openFile(result.files);
+                              },
                               child: Row(
                                 children: const [
                                   Icon(
