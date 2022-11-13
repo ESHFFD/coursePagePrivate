@@ -10,21 +10,6 @@ class HomaPgae extends StatefulWidget {
 }
 
 class _HomaPgaeState extends State<HomaPgae> {
-  late TabController _tabController;
-  static const List<Tab> _tabs = [
-    Tab(
-      text: ('Information about courses'),
-    ),
-    Tab(
-      text: ('Courses'),
-    ),
-    Tab(
-      text: ('About Teachers'),
-    ),
-    Tab(
-      text: ('Comments'),
-    )
-  ];
   String firstDropDownItem = 'English';
   final List<String> languageItems = <String>[
     'English',
