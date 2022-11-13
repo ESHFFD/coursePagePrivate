@@ -15,7 +15,8 @@ class TeacherHomePage extends StatefulWidget {
 }
 
 class _TeacherHomePageState extends State<TeacherHomePage> {
-  String? fileName;
+  String? fileNameResume;
+  String? fileNameVideo;
   String firstDropDownItem = 'English';
   final List languageItems = [
     'English',
@@ -83,7 +84,7 @@ class _TeacherHomePageState extends State<TeacherHomePage> {
 
                           final file = result.files.first;
                           setState(() {
-                            fileName = file.name;
+                            fileNameResume = file.name;
                           });
                           // final newFile = await saveFile(file);
                           // openFile(result.files);
@@ -179,7 +180,9 @@ class _TeacherHomePageState extends State<TeacherHomePage> {
                           horizontal: 8.0, vertical: 8.0),
                       child: Align(
                           alignment: Alignment.topLeft,
-                          child: (fileName != null) ? Text(fileName!) : null),
+                          child: (fileNameResume != null)
+                              ? Text(fileNameResume!)
+                              : null),
                     ),
                   const SizedBox(
                     height: 20,
@@ -207,7 +210,7 @@ class _TeacherHomePageState extends State<TeacherHomePage> {
 
                                 final file = result.files.first;
                                 setState(() {
-                                  fileName = file.name;
+                                  fileNameVideo = file.name;
                                 });
                                 // final newFile = await saveFile(file);
                                 // openFile(result.files);
@@ -228,7 +231,17 @@ class _TeacherHomePageState extends State<TeacherHomePage> {
                                 ],
                               )))
                     ],
-                  )
+                  ),
+                  if (_isSelected)
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 8.0, vertical: 8.0),
+                      child: Align(
+                          alignment: Alignment.topLeft,
+                          child: (fileNameVideo != null)
+                              ? Text(fileNameVideo!)
+                              : null),
+                    ),
                 ],
               ),
             ))
