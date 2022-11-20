@@ -309,8 +309,8 @@ class _TeacherPanelState extends State<TeacherPanel> {
                                             'assets/svg/teacherPanel/background.jpg'),
                                       ),
                                       Positioned(
-                                        top: 13,
-                                        left: 12,
+                                        top: 14,
+                                        left: 5,
                                         child: Container(
                                           width: 38,
                                           height: 13,
@@ -328,8 +328,8 @@ class _TeacherPanelState extends State<TeacherPanel> {
                                         ),
                                       ),
                                       Positioned(
-                                        bottom: 13,
-                                        left: 12,
+                                        bottom: 16,
+                                        left: 8,
                                         child: Container(
                                           width: 40,
                                           height: 15,
@@ -347,8 +347,8 @@ class _TeacherPanelState extends State<TeacherPanel> {
                                         ),
                                       ),
                                       Positioned(
-                                        bottom: 13,
-                                        right: 12,
+                                        bottom: 14,
+                                        right: 4,
                                         child: Container(
                                           width: 20,
                                           height: 20,
@@ -361,7 +361,7 @@ class _TeacherPanelState extends State<TeacherPanel> {
                                               child: Icon(
                                             Icons.play_arrow,
                                             color: Colors.white,
-                                            size: 20,
+                                            size: 16,
                                           )),
                                         ),
                                       ),
