@@ -439,11 +439,12 @@ class _TeacherPanelState extends State<TeacherPanel> {
                 height: size.height * 0.02,
               ),
               Card(
-                elevation: AppSize.s4,
+                elevation: AppSize.s1_5,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10)),
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: AppSize.s18),
+                  padding: const EdgeInsets.symmetric(
+                      vertical: AppSize.s18, horizontal: AppSize.s18),
                   child: Column(
                     children: [
                       Text(
@@ -455,7 +456,7 @@ class _TeacherPanelState extends State<TeacherPanel> {
                       SizedBox(height: size.height * 0.02),
                       SizedBox(
                         width: double.infinity,
-                        height: 400,
+                        height: 390,
                         child: ListView(
                             shrinkWrap: true,
                             scrollDirection: Axis.horizontal,
@@ -505,8 +506,59 @@ class LastCard extends StatelessWidget {
                   width: 125,
                   height: 185,
                   decoration: BoxDecoration(
-                      color: Colors.amber,
+                      image: const DecorationImage(
+                          image: AssetImage('assets/svg/avatar/course5.jpg'),
+                          fit: BoxFit.fill),
                       borderRadius: BorderRadius.circular(AppSize.s12)),
+                ),
+                Positioned(
+                  top: 7,
+                  left: 7,
+                  child: Container(
+                    width: 38,
+                    height: 13,
+                    decoration: BoxDecoration(
+                        color: Colors.amber,
+                        borderRadius: BorderRadius.circular(AppSize.s4)),
+                    child: Center(
+                      child: Text("Manage",
+                          style: getRegularStyle(
+                              color: Colors.black, fontSize: AppSize.s8)),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  bottom: 4,
+                  left: 5,
+                  child: Container(
+                    width: 43,
+                    height: 22,
+                    decoration: BoxDecoration(
+                        color: Colors.black38,
+                        borderRadius: BorderRadius.circular(AppSize.s16)),
+                    child: Center(
+                      child: Text("15 min",
+                          style: getRegularStyle(
+                              color: Colors.white, fontSize: AppSize.s12)),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  bottom: 5,
+                  right: 5,
+                  child: Container(
+                    width: 20,
+                    height: 20,
+                    decoration: BoxDecoration(
+                        color: ColorTeacherPanel.boxColorGreen,
+                        borderRadius: BorderRadius.circular(100)),
+                    child: const Center(
+                        child: Icon(
+                      Icons.play_arrow,
+                      color: Colors.white,
+                      size: 15,
+                    )),
+                  ),
                 ),
               ]),
             ),
