@@ -453,95 +453,17 @@ class _TeacherPanelState extends State<TeacherPanel> {
                             fontSize: AppSize.s18),
                       ),
                       SizedBox(height: size.height * 0.02),
-                      Card(
-                        elevation: 2,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(AppSize.s12)),
-                        child: Padding(
-                          padding: const EdgeInsets.all(AppSize.s18),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                      SizedBox(
+                        width: double.infinity,
+                        height: 400,
+                        child: ListView(
+                            shrinkWrap: true,
+                            scrollDirection: Axis.horizontal,
                             children: [
-                              InkWell(
-                                onTap: () {
-                                  print('Clicked');
-                                },
-                                child: Stack(children: [
-                                  Container(
-                                    width: 125,
-                                    height: 185,
-                                    decoration: BoxDecoration(
-                                        color: Colors.amber,
-                                        borderRadius:
-                                            BorderRadius.circular(AppSize.s12)),
-                                  ),
-                                ]),
-                              ),
-                              SizedBox(height: size.height * 0.02),
-                              SizedBox(
-                                width: 130,
-                                child: Text(
-                                  'Any mechanical keyboard enthusiasts',
-                                  style: getBoldStyle(
-                                      color: ColorTeacherPanel.darkGrey),
-                                ),
-                              ),
-                              SizedBox(
-                                height: size.height * 0.03,
-                              ),
-                              SizedBox(
-                                width: 100,
-                                child: Stack(
-                                  children: [
-                                    Positioned(
-                                      child: CircleAvatar(
-                                        backgroundColor: Colors.transparent,
-                                        child: SizedBox(
-                                            width: 40,
-                                            child: ClipOval(
-                                                child: Image.asset(
-                                              'assets/svg/avatar/av1.jpg',
-                                            ))),
-                                      ),
-                                    ),
-                                    Positioned(
-                                      left: 25,
-                                      child: CircleAvatar(
-                                        backgroundColor: Colors.transparent,
-                                        child: SizedBox(
-                                            width: 40,
-                                            child: ClipOval(
-                                                child: Image.asset(
-                                              'assets/svg/avatar/av1.jpg',
-                                            ))),
-                                      ),
-                                    ),
-                                    Positioned(
-                                      left: 50,
-                                      child: CircleAvatar(
-                                        backgroundColor: Colors.transparent,
-                                        child: SizedBox(
-                                            width: 40,
-                                            child: ClipOval(
-                                                child: Image.asset(
-                                              'assets/svg/avatar/av1.jpg',
-                                            ))),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              TextButton(
-                                  onPressed: () {},
-                                  child: Text(
-                                    'Youtube Video',
-                                    style: getBoldStyle(
-                                        color: ColorTeacherPanel.darkGrey,
-                                        fontSize: AppSize.s12),
-                                  ))
-                            ],
-                          ),
-                        ),
+                              LastCard(size: size),
+                              LastCard(size: size),
+                              LastCard(size: size),
+                            ]),
                       ),
                     ],
                   ),
@@ -549,6 +471,106 @@ class _TeacherPanelState extends State<TeacherPanel> {
               )
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class LastCard extends StatelessWidget {
+  const LastCard({
+    super.key,
+    required this.size,
+  });
+
+  final Size size;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      elevation: 2,
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(AppSize.s12)),
+      child: Padding(
+        padding: const EdgeInsets.all(AppSize.s18),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            InkWell(
+              onTap: () {
+                print('Clicked');
+              },
+              child: Stack(children: [
+                Container(
+                  width: 125,
+                  height: 185,
+                  decoration: BoxDecoration(
+                      color: Colors.amber,
+                      borderRadius: BorderRadius.circular(AppSize.s12)),
+                ),
+              ]),
+            ),
+            SizedBox(height: size.height * 0.02),
+            SizedBox(
+              width: 130,
+              child: Text(
+                'Any mechanical keyboard enthusiasts',
+                style: getBoldStyle(color: ColorTeacherPanel.darkGrey),
+              ),
+            ),
+            SizedBox(
+              height: size.height * 0.03,
+            ),
+            SizedBox(
+              width: 100,
+              child: Stack(
+                children: [
+                  Positioned(
+                    child: CircleAvatar(
+                      backgroundColor: Colors.transparent,
+                      child: SizedBox(
+                          width: 40,
+                          child: ClipOval(
+                              child: Image.asset(
+                            'assets/svg/avatar/av1.jpg',
+                          ))),
+                    ),
+                  ),
+                  Positioned(
+                    left: 25,
+                    child: CircleAvatar(
+                      backgroundColor: Colors.transparent,
+                      child: SizedBox(
+                          width: 40,
+                          child: ClipOval(
+                              child: Image.asset(
+                            'assets/svg/avatar/av1.jpg',
+                          ))),
+                    ),
+                  ),
+                  Positioned(
+                    left: 50,
+                    child: CircleAvatar(
+                      backgroundColor: Colors.transparent,
+                      child: SizedBox(
+                          width: 40,
+                          child: ClipOval(
+                              child: Image.asset(
+                            'assets/svg/avatar/av1.jpg',
+                          ))),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            TextButton(
+                onPressed: () {},
+                child: Text(
+                  'Youtube Video',
+                  style: getBoldStyle(
+                      color: ColorTeacherPanel.darkGrey, fontSize: AppSize.s12),
+                ))
+          ],
         ),
       ),
     );
