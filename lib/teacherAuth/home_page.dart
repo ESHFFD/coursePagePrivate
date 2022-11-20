@@ -243,6 +243,23 @@ class _TeacherHomePageState extends State<TeacherHomePage> {
                               ? Text(fileNameVideo!)
                               : null),
                     ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                          child: InkWell(
+                        onTap: () {},
+                        child: const Text('data'),
+                      )),
+                      const Expanded(
+                        child: TextField(
+                          decoration: InputDecoration(),
+                        ),
+                      )
+                    ],
+                  )
                 ],
               ),
             ))

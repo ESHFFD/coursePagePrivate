@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:tetest/models/questions.dart';
 import 'package:tetest/screens/home_page.dart';
 import 'package:tetest/teacherAuth/home_page.dart';
+import 'package:tetest/teacherPanel/screens/dashboard.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       providers: [ChangeNotifierProvider(create: (contex) => Questions())],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: TeacherHomePage(),
+        home: TeacherPanel(),
 
         // routes: {QuizDetailScreen.routName: (ctx) => const QuestionGrid()},
       ),
