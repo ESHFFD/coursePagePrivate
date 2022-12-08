@@ -7,6 +7,7 @@ import 'package:tetest/models/questions.dart';
 import 'package:tetest/screens/home_page.dart';
 import 'package:tetest/teacherAuth/home_page.dart';
 import 'package:tetest/teacherPanel/screens/dashboard.dart';
+import 'package:tetest/test_texfield/http_helper.dart';
 import 'package:tetest/test_texfield/txt.dart';
 
 void main() {
@@ -26,11 +27,14 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (contex) => Tasks(),
+        ),
+        ChangeNotifierProvider(
+          create: (contex) => HttpHelper(),
         )
       ],
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        home: MyCalendar(),
+        home: TeacherHomePage(),
 
         // routes: {QuizDetailScreen.routName: (ctx) => const QuestionGrid()},
       ),

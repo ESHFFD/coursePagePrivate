@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:tetest/widgets/file_page.dart';
+import 'package:http/http.dart' as http;
 
 class TeacherHomePage extends StatefulWidget {
   const TeacherHomePage({Key? key}) : super(key: key);
@@ -15,6 +16,46 @@ class TeacherHomePage extends StatefulWidget {
 }
 
 class _TeacherHomePageState extends State<TeacherHomePage> {
+  Future uploadFile(String fileName) async {
+    var headers = {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Accept': 'application/json'
+    };
+    var url = Uri.parse(
+        'http://135.125.59.77:8090/api/v1/sign-up/teacher/fcb833bd-d86e-4cb0-89cd-b4bdaa0bbc08/upload-resume/');
+    var request = http.MultipartRequest('POST', url);
+    request.files.add(await http.MultipartFile.fromPath('file', fileName));
+    request.headers.addAll(headers);
+    var res = await request.send();
+    if (res.statusCode == 200) {
+      print(res.statusCode);
+      print(res.stream.bytesToString());
+    } else {
+      print(res.reasonPhrase);
+      print(res.statusCode);
+    }
+
+    return res.reasonPhrase;
+  }
+
+  uploadFi() async {
+    String uploadURL = '';
+  }
+  // void startUploading() async {
+  //   if ( != null ||
+  //      ) {
+  //     final Map<String, dynamic> response = await uploadFile(_resume);
+
+  //     // Check if any error occured
+  //     if (response == null) {
+
+  //       debugPrint('ok');
+  //     }
+  //   } else {
+  //      debugPrint('no ok');
+  //   }
+  // }
+
   String? fileNameResume;
   String? fileNameVideo;
   String firstDropDownItem = 'English';
@@ -84,7 +125,10 @@ class _TeacherHomePageState extends State<TeacherHomePage> {
                           if (result == null) return;
 
                           final file = result.files.first;
+
                           setState(() {
+                            print(file.path);
+                            uploadFile(file.path!);
                             fileNameResume = file.name;
                           });
                           // final newFile = await saveFile(file);
@@ -246,20 +290,24 @@ class _TeacherHomePageState extends State<TeacherHomePage> {
                   const SizedBox(
                     height: 20,
                   ),
-                  Row(
-                    children: [
-                      Expanded(
-                          child: InkWell(
-                        onTap: () {},
-                        child: const Text('data'),
-                      )),
-                      const Expanded(
-                        child: TextField(
-                          decoration: InputDecoration(),
-                        ),
-                      )
-                    ],
-                  )
+                  // ElevatedButton(
+                  //   onPressed: () {},
+                  //   child: const Text("ADD Resume"),
+                  // )
+                  // Row(
+                  //   children: [
+                  //     Expanded(
+                  //         child: InkWell(
+                  //       onTap: () {},
+                  //       child: const Text('data'),
+                  //     )),
+                  //     const Expanded(
+                  //       child: TextField(
+                  //         decoration: InputDecoration(),
+                  //       ),
+                  //     )
+                  //   ],
+                  // )
                 ],
               ),
             ))
