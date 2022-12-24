@@ -4,6 +4,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:tetest/widgets/file_page.dart';
 import 'package:http/http.dart' as http;
@@ -38,9 +39,9 @@ class _TeacherHomePageState extends State<TeacherHomePage> {
     return res.reasonPhrase;
   }
 
-  uploadFi() async {
-    String uploadURL = '';
-  }
+  // uploadFi() async {
+  //   String uploadURL = '';
+  // }
   // void startUploading() async {
   //   if ( != null ||
   //      ) {
@@ -74,6 +75,9 @@ class _TeacherHomePageState extends State<TeacherHomePage> {
 
     return File(file.path!).copy(newFile.path);
   }
+
+  late String lan;
+  late String lat;
 
 //go to added file screen .....
 
@@ -290,6 +294,16 @@ class _TeacherHomePageState extends State<TeacherHomePage> {
                   const SizedBox(
                     height: 20,
                   ),
+
+                  ElevatedButton(
+                      onPressed: () {
+                        _getCurrentLocation().then((value) {
+                          lan = '$value.lan';
+                          lat = '$value.lat';
+                        });
+                      },
+                      child: const Text('Location')),
+                  Text('data')
                   // ElevatedButton(
                   //   onPressed: () {},
                   //   child: const Text("ADD Resume"),
@@ -313,6 +327,24 @@ class _TeacherHomePageState extends State<TeacherHomePage> {
             ))
           ]),
     );
+  }
+
+  Future<Position> _getCurrentLocation() async {
+    bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {
+      return Future.error('Location service is not enabled');
+    }
+    LocationPermission permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied) {
+        return Future.error('Locaton permission is denied');
+      }
+    }
+    if (permission == LocationPermission.deniedForever) {
+      return Future.error('Location permisson is permanatly denied');
+    }
+    return Geolocator.getCurrentPosition();
   }
 }
 

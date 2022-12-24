@@ -627,4 +627,7 @@ class LastCard extends StatelessWidget {
       ),
     );
   }
+  _appbar(){
+    return AppBar();
+  }
 }

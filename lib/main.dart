@@ -5,6 +5,9 @@ import 'package:tetest/calendar/calendar.dart';
 import 'package:tetest/calendar/models/task_list.dart';
 import 'package:tetest/models/questions.dart';
 import 'package:tetest/screens/home_page.dart';
+import 'package:tetest/studentPanel/Screens/chart_part.dart';
+import 'package:tetest/studentPanel/Screens/course_view.dart';
+import 'package:tetest/studentPanel/Screens/test_your_knowledge.dart';
 import 'package:tetest/teacherAuth/home_page.dart';
 import 'package:tetest/teacherPanel/screens/dashboard.dart';
 import 'package:tetest/test_texfield/http_helper.dart';
@@ -34,7 +37,7 @@ class MyApp extends StatelessWidget {
       ],
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        home: TeacherHomePage(),
+        home: ChartPart(),
 
         // routes: {QuizDetailScreen.routName: (ctx) => const QuestionGrid()},
       ),
