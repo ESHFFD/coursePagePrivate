@@ -8,10 +8,12 @@ import 'package:tetest/screens/home_page.dart';
 import 'package:tetest/studentPanel/Screens/chart_part.dart';
 import 'package:tetest/studentPanel/Screens/course_view.dart';
 import 'package:tetest/studentPanel/Screens/test_your_knowledge.dart';
+import 'package:tetest/studentPanel/Screens/tiket.dart';
 import 'package:tetest/teacherAuth/home_page.dart';
 import 'package:tetest/teacherPanel/screens/dashboard.dart';
 import 'package:tetest/test_texfield/http_helper.dart';
 import 'package:tetest/test_texfield/txt.dart';
+import 'package:tetest/web_home_view/screens/web_home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,7 +39,7 @@ class MyApp extends StatelessWidget {
       ],
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        home: ChartPart(),
+        home: WebHomePage(),
 
         // routes: {QuizDetailScreen.routName: (ctx) => const QuestionGrid()},
       ),
