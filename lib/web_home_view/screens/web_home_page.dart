@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tetest/web_home_view/widgets/blog_part.dart';
 import 'package:tetest/web_home_view/widgets/firstpart.dart';
 
 class WebHomePage extends StatelessWidget {
@@ -55,6 +56,17 @@ class WebHomePage extends StatelessWidget {
                 ),
               ),
             ),
+            Center(
+              child: SizedBox(
+                  height: 400,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 3,
+                    itemBuilder: (context, index) {
+                      return BlogPart();
+                    },
+                  )),
+            )
           ],
         ),
       ),

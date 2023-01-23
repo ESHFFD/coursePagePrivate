@@ -21,11 +21,11 @@ class TeacherPart extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  _singelIcon1(),
+                  _singelIcon1(Icons.favorite_border_outlined),
                   const SizedBox(
                     width: 10,
                   ),
-                  _singelIcon2(),
+                  _singelIcon1(Icons.share),
                 ],
               ),
               _circularPic(),
@@ -60,26 +60,14 @@ class TeacherPart extends StatelessWidget {
   }
 }
 
-Widget _singelIcon1() {
+Widget _singelIcon1(IconData icon) {
   return Container(
-    width: 40,
-    height: 40,
-    decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: Colors.black)),
-    child: const Icon(Icons.favorite_border_outlined),
-  );
-}
-
-Widget _singelIcon2() {
-  return Container(
-    width: 40,
-    height: 40,
-    decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: Colors.black54)),
-    child: Icon(Icons.share),
-  );
+      width: 40,
+      height: 40,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          border: Border.all(color: Colors.black)),
+      child: Icon(icon));
 }
 
 Widget _circularPic() {
